@@ -225,9 +225,9 @@ console.log(artistBioLookUp[2].bio)
 
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
-artists[10].name = "Vincent Van Gogh";
+artists[8].name = "Vincent Van Gogh";
 
-console.log(artistLookUp[10].name)
+console.log(artistLookUp[8].name)
 
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments:
@@ -238,7 +238,7 @@ console.log(artistLookUp[10].name)
  * For example, if getArtistByIndex is invoked with the artists dataset and the number 0,
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
-function getArtistByIndex(array, index) {
+function getArtistByIndex(array) {
     return `The artist at index ${array.id} is ${array.name}`;
   }
   console.log(getArtistByIndex(artists[2])) 
@@ -246,10 +246,13 @@ function getArtistByIndex(array, index) {
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
-
-//function get20s(array,years){
-
-
+function get20s(array){
+for(let i = 0; i < array.length; i++)
+if(array[i].years < '2000' && array[i].years > '1900'){
+  return array[i]
+}
+}
+console.log(get20s(artists))
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
  *     (1) artists array
@@ -261,11 +264,11 @@ function getArtistByIndex(array, index) {
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-// function removeArtist(array,num) {
-//   return array.splice(array.indexOf(num))
-// }
-// console.log(removeArtist(artists,19))
-// console.log(artists)
+function removeArtist(array,num) {
+  return array.splice(array.indexOf(num))
+}
+console.log(removeArtist(artists,19))
+console.log(artists)
  
 
 /**
